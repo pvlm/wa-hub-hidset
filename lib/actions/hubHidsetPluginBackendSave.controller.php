@@ -12,7 +12,7 @@ class hubHidsetPluginBackendSaveController extends waJsonController
         $data = waRequest::post();
         foreach ($data as $key => $value) {
             if ($hsets[$key]['type'] == 'int') {
-                if (strpos($value, ',') || intval($value) != $value  || $value < 1) {
+                if(!(int)$value){
                     $error .=  $key . ' ';
                     $check_error = true;
                 }else{
